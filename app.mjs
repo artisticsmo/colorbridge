@@ -1,6 +1,7 @@
 import { fileURLToPath } from 'node:url';
 import { start } from './lib/server.mjs';
 import { run, validate } from './core.mjs';
+import { product } from './project.mjs';
 export * from './core.mjs';
 export const spec = { ...{
   "slug": "colorbridge",
@@ -37,7 +38,7 @@ export const spec = { ...{
   },
   "changed": "Current sRGB luminance breakpoint, explicit text classes, unsupported pairs marked unchecked, shared-token revalidation and no regression of previously passing pairs.",
   "limits": "Opaque sRGB only. Bounded search may leave conflicts unresolved; the report does not certify a whole website or infer typography.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "inputSchema": {
     "type": "object",
     "required": [
@@ -56,6 +57,6 @@ export const spec = { ...{
       }
     }
   }
-}, run, validate };
+}, run, validate, product };
 if (process.argv[1] === fileURLToPath(import.meta.url)) start(spec);
 
